@@ -4,20 +4,19 @@ import logging
 logger = logging.getLogger(__name__)
 
 def detect_pdf_type(path: str, max_pages: int = 5) -> dict:
-    doc = fitz.open(path)
-
     pages_checked = 0
     pages_with_text = 0
 
-    for page in doc:
-        if pages_checked >= max_pages:
-            break
+    with fitz.open(path) as doc:
+        for page in doc:
+            if pages_checked >= max_pages:
+                break
 
-        text = page.get_text().strip()
-        pages_checked += 1
+            text = page.get_text().strip()
+            pages_checked += 1
 
-        if len(text) > 50:  # threshold to avoid noise
-            pages_with_text += 1
+            if len(text) > 50:  # threshold to avoid noise 
+                pages_with_text += 1
 
     if pages_checked == 0:
         logger.warning("No readable pages found in PDF: %s", path)
