@@ -143,6 +143,45 @@ Expected top-level documents include:
 
 Structure will stabilize as implementation progresses.
 
+## Getting Started
+
+### Prerequisites
+
+- **Python 3.10 or higher**
+- **System dependencies** (for PDF processing):
+  - Tesseract OCR: [Installation guide](https://github.com/tesseract-ocr/tesseract)
+  - Ghostscript: [Installation guide](https://www.ghostscript.com/download/gsdnld.html)
+
+### Installation
+
+1. **Clone the repository**
+```bash
+   git clone https://github.com/OpenGovAfrica/oga-budget-lens.git
+   cd oga-budget-lens
+```
+
+2. **Create a virtual environment** (recommended)
+```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. **Install dependencies**
+```bash
+   pip install -r requirements.txt
+```
+
+4. **Verify your setup**
+```bash
+   python setup_check.py
+```
+
+   You should see: `✓ All checks passed! Environment ready.`
+
+### Quick Start
+
+Once your environment is set up, you can explore the project structure and review open issues to start contributing.
+
 ### How to Get Involved
 
 - Read the roadmap to understand project direction
